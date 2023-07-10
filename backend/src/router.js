@@ -2,12 +2,28 @@ const express = require("express");
 
 const router = express.Router();
 
-const itemControllers = require("./controllers/itemControllers");
+const famillesControllers = require("./controllers/famillesControllers");
 
-router.get("/items", itemControllers.browse);
-router.get("/items/:id", itemControllers.read);
-router.put("/items/:id", itemControllers.edit);
-router.post("/items", itemControllers.add);
-router.delete("/items/:id", itemControllers.destroy);
+router.get("/familles", famillesControllers.browse);
+router.get("/familles/:slug", famillesControllers.read);
+router.put("/familles/:slug", famillesControllers.edit);
+router.post("/familles", famillesControllers.add);
+router.delete("/familles/:id", famillesControllers.destroy);
+
+const categoriesControllers = require("./controllers/categoriesControllers");
+
+router.get("/categories", categoriesControllers.browse);
+router.get("/categories/:id", categoriesControllers.read);
+router.put("/categories/:id", categoriesControllers.edit);
+router.post("/categories", categoriesControllers.add);
+router.delete("/categories/:id", categoriesControllers.destroy);
+
+const productsControllers = require("./controllers/productsControllers");
+
+router.get("/products", productsControllers.browse);
+router.get("/products/:slug", productsControllers.read);
+router.put("/products/:slug", productsControllers.edit);
+router.post("/products", productsControllers.add);
+router.delete("/products/:id", productsControllers.destroy);
 
 module.exports = router;

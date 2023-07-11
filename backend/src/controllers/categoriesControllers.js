@@ -12,9 +12,25 @@ const browse = (req, res) => {
     });
 };
 
-const read = (req, res) => {
+const readById = (req, res) => {
   models.categories
-    .find(req.params.id)
+    .findById(req.params.id)
+    .then(([categories]) => {
+      if (categories[0] == null) {
+        res.sendStatus(404);
+      } else {
+        res.status(200).json(categories);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
+const readBySlug = (req, res) => {
+  models.categories
+    .findBySlug(req.params.slug)
     .then(([categories]) => {
       if (categories[0] == null) {
         res.sendStatus(404);
@@ -84,7 +100,8 @@ const destroy = (req, res) => {
 
 module.exports = {
   browse,
-  read,
+  readById,
+  readBySlug,
   edit,
   add,
   destroy,

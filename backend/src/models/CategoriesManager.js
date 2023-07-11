@@ -9,10 +9,20 @@ class CategoriesManager extends AbstractManager {
     return this.database.query(`select * from  ${this.table} `);
   }
 
-  find(id) {
+  findById(id) {
     return this.database.query(
       `select * from  ${this.table} where famille_id = ?`,
       [id]
+    );
+  }
+
+  findBySlug(slug) {
+    return this.database.query(
+      `select * from  ${this.table} as c 
+      inner join products_to_categories as ptc on ptc.categorie_id = c.id 
+      inner join products as p on p.id = ptc.product_id
+      where c.slug = ?`,
+      [slug]
     );
   }
 

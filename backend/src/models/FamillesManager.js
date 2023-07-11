@@ -9,9 +9,9 @@ class FamillesManager extends AbstractManager {
     return this.database.query(`select * from  ${this.table} `);
   }
 
-  find(id) {
-    return this.database.query(`select * from  ${this.table} where id = ?`, [
-      id,
+  find(slug) {
+    return this.database.query(`select * from  ${this.table} where slug = ?`, [
+      slug,
     ]);
   }
 

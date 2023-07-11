@@ -14,7 +14,7 @@ const browse = (req, res) => {
 
 const read = (req, res) => {
   models.familles
-    .find(req.params.id)
+    .find(req.params.slug)
     .then(([familles]) => {
       if (familles[0] == null) {
         res.sendStatus(404);

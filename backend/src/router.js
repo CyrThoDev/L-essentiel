@@ -14,7 +14,7 @@ const categoriesControllers = require("./controllers/categoriesControllers");
 
 router.get("/categories", categoriesControllers.browse);
 // router.get("/categories/:id", categoriesControllers.readById);
-router.get("/categories/:slug", categoriesControllers.readBySlug);
+router.get("/categories/:slug", categoriesControllers.readBySlug); // Récupère tous les produits qui ont comme catégorie le slug
 router.put("/categories/:id", categoriesControllers.edit);
 router.post("/categories", categoriesControllers.add);
 router.delete("/categories/:id", categoriesControllers.destroy);

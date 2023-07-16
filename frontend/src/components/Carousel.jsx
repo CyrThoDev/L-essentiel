@@ -1,11 +1,11 @@
-import { register } from "swiper/element/bundle";
+// import { register } from "swiper/element/bundle";
 import React from "react";
 import image1 from "../assets/images/1.jpg";
 import image5 from "../assets/images/5.jpg";
 import image7 from "../assets/images/7.jpg";
 import image8 from "../assets/images/8.jpg";
 
-register();
+// register();
 
 function Carousel() {
   return (

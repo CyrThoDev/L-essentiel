@@ -30,7 +30,7 @@ function DisplayCategories({ title, id }) {
       </button>
       {open && (
         <>
-          <Link to="/epicerie">
+          <Link to={title}>
             <div>Toutes les catégories</div>
           </Link>
           <div>

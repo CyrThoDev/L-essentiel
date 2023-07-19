@@ -4,7 +4,10 @@ import UserLayout from "./pages/Layout/UserLayout";
 import AdminLayout from "./pages/Layout/AdminLayout";
 import AdminLogin from "./pages/Admin/AdminLogin";
 import CategoryPage from "./pages/User/CategoryPage";
+import Contact from "./pages/User/Contact";
 import "./App.css";
+import Fonctionnement from "./pages/User/Fonctionnement";
+import History from "./pages/User/History";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
               path="droguerie"
               element={<CategoryPage title="droguerie" id={2} />}
             />
+            <Route path="fonctionnement" element={<Fonctionnement />} />
+            <Route path="histoire" element={<History />} />
+            <Route path="contact" element={<Contact />} />
           </Route>
           <Route path="/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminLayout />} />

@@ -9,6 +9,9 @@ function Sidebar() {
           Sidebar content goes here
         </div>
         <div className="w-3/4 p-4">Main content goes here</div>
+        <div className="w-3/4 p-4">Main content goes here</div>
+        <div className="w-3/4 p-4">Main content goes here</div>
+        <div className="w-3/4 p-4">Main content goes here</div>
       </div>
     </>
   );

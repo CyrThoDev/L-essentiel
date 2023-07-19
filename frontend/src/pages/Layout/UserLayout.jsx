@@ -3,8 +3,7 @@ import { Outlet } from "react-router-dom";
 
 function UserLayout() {
   return (
-    <div>
-      UserLayout
+    <div className="m-4">
       <Outlet />
     </div>
   );

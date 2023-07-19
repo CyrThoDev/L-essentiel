@@ -1,18 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Roboto&family=Tenor+Sans&display=swap");
-html,
-body {
-  position: relative;
-  height: 100%;
+@font-face {
+  font-family: "Striverx";
+  src: url("../fonts/Striverx.otf");
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
-}
 .HeaderContainer {
   display: flex;
   flex-direction: column;
@@ -21,31 +15,5 @@ body {
 
 .HeaderContainer img {
   width: 20%;
-  height: auto;
-}
-
-.App {
-  font-family: "Amatic SC", cursive;
-  font-size: 45px;
-  text-align: center;
-}
-
-.container {
-  font-family: "Roboto";
-  text-align: center;
-  font-size: 1rem;
-  background-color: #e2c3a1;
-  width: 100%;
-  height: 3rem;
-}
-
-swiper-container {
-  display: flex;
-  flex-direction: column;
-  margin: 7rem;
-}
-
-swiper-slide img {
-  width: 300px;
   height: auto;
 }

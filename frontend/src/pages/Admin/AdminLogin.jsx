@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import essentielLogoMarron from "../../assets/images/LOGOessentielmarron.png";
-import connexion from "../../services/connexion";
 
 function AdminLogin() {
   const [admin, setAdmin] = useState({

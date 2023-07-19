@@ -16,6 +16,13 @@ class CategoriesManager extends AbstractManager {
     );
   }
 
+  findCategoriesByFamily(id) {
+    return this.database.query(
+      `select * from  ${this.table} where famille_id = ? `,
+      [id]
+    );
+  }
+
   findBySlug(slug) {
     return this.database.query(
       `select * from  ${this.table} as c 

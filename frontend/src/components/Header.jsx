@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 // eslint-disable-next-line import/no-unresolved
 import { PiBasketDuotone } from "react-icons/Pi";
 import essentielLogoMarron from "../assets/images/LOGOessentielmarron.png";
@@ -18,7 +17,9 @@ function Header() {
             src={essentielLogoMarron}
             alt="Logo marron Essentiel"
           />
-          <p className="font-amatic text-3xl">Epicerie vrac zero déchet</p>
+          <p className="font-amatic text-center text-3xl">
+            Epicerie vrac zero déchet
+          </p>
         </Link>
       </div>
     </>

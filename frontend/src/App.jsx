@@ -8,6 +8,9 @@ import Contact from "./pages/User/Contact";
 import "./App.css";
 import Fonctionnement from "./pages/User/Fonctionnement";
 import History from "./pages/User/History";
+import AdminFamilles from "./pages/Admin/AdminFamilles";
+import AdminCategories from "./pages/Admin/AdminCategories";
+import AdminProducts from "./pages/Admin/AdminProducts";
 
 function App() {
   return (
@@ -29,7 +32,11 @@ function App() {
             <Route path="contact" element={<Contact />} />
           </Route>
           <Route path="/login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminLayout />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="familles" element={<AdminFamilles />} />
+            <Route path="categories" element={<AdminCategories />} />
+            <Route path="produits" element={<AdminProducts />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

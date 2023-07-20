@@ -2,7 +2,7 @@ const models = require("../models");
 
 const browse = (req, res) => {
   models.products
-    .findAll()
+    .findAll(req.query.name)
     .then(([products]) => {
       res.status(200).json(products);
     })

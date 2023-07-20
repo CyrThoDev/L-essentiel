@@ -5,8 +5,14 @@ class ProductsManager extends AbstractManager {
     super({ table: "products" });
   }
 
-  findAll() {
-    return this.database.query(`select * from  ${this.table} `);
+  findAll(name) {
+    let url = `select  * from ${this.table}`;
+    const value = [];
+    if (name) {
+      url += ` where name like ? `;
+      value.push(`%${name}%`);
+    }
+    return this.database.query(url, value);
   }
 
   find(id) {

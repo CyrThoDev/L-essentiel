@@ -24,9 +24,9 @@ const browseCategoriesByFamily = (req, res) => {
     });
 };
 
-const readBySlug = (req, res) => {
+const read = (req, res) => {
   models.familles
-    .findBySlug(req.params.slug)
+    .findById(req.params.id)
     .then(([familles]) => {
       if (familles[0] == null) {
         res.sendStatus(404);
@@ -39,18 +39,29 @@ const readBySlug = (req, res) => {
       res.sendStatus(500);
     });
 };
+// const readBySlug = (req, res) => {
+//   models.familles
+//     .findBySlug(req.params.slug)
+//     .then(([familles]) => {
+//       if (familles[0] == null) {
+//         res.sendStatus(404);
+//       } else {
+//         res.status(200).json(familles);
+//       }
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.sendStatus(500);
+//     });
+// };
 
 const edit = (req, res) => {
   const familles = req.body;
-
-  // TODO validations (length, format...)
-
   familles.id = parseInt(req.params.id, 10);
-
   models.familles
     .update(familles)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
+    .then(([fam]) => {
+      if (fam.affectedRows === 0) {
         res.sendStatus(404);
       } else {
         res.sendStatus(204);
@@ -62,27 +73,25 @@ const edit = (req, res) => {
     });
 };
 
-const add = (req, res) => {
-  const familles = req.body;
-
-  // TODO validations (length, format...)
-
-  models.familles
-    .insert(familles)
-    .then(([result]) => {
-      res.location(`/familles/${result.insertId}`).sendStatus(201);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
+const add = async (req, res) => {
+  const famille = req.body;
+  try {
+    const familleInsert = await models.familles.insert(famille);
+    res
+      .location(`/familles/${familleInsert[0].insertId}`)
+      .status(201)
+      .json({ ...famille, id: familleInsert[0].insertId });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
 };
 
 const destroy = (req, res) => {
   models.familles
     .delete(req.params.id)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
+    .then(([famille]) => {
+      if (famille.affectedRows === 0) {
         res.sendStatus(404);
       } else {
         res.sendStatus(204);
@@ -96,7 +105,8 @@ const destroy = (req, res) => {
 
 module.exports = {
   browse,
-  readBySlug,
+  read,
+  // readBySlug,
   browseCategoriesByFamily,
   edit,
   add,

@@ -9,21 +9,30 @@ class FamillesManager extends AbstractManager {
     return this.database.query(`select * from  ${this.table} `);
   }
 
-  findBySlug(slug) {
-    return this.database.query(`select * from  ${this.table} slug = ?`, [slug]);
-  }
-
-  insert(familles) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      familles.title,
+  findById(id) {
+    return this.database.query(`select * from  ${this.table} where id = ?`, [
+      id,
     ]);
   }
 
-  update(familles) {
+  findBySlug(slug) {
+    return this.database.query(`select * from  ${this.table} where slug = ?`, [
+      slug,
+    ]);
+  }
+
+  insert(familles) {
     return this.database.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [familles.title, familles.id]
+      `insert into ${this.table} (name,description, slug) values (?,?,?)`,
+      [familles.name, familles.description, familles.slug]
     );
+  }
+
+  update(famille) {
+    return this.database.query(`update ${this.table} set ? where id = ?`, [
+      famille,
+      famille.id,
+    ]);
   }
 }
 

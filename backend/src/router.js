@@ -7,13 +7,14 @@ const categoriesControllers = require("./controllers/categoriesControllers");
 const productsControllers = require("./controllers/productsControllers");
 
 router.get("/familles", famillesControllers.browse);
-router.get("/familles/:slug", famillesControllers.readBySlug);
+// router.get("/familles/:slug", famillesControllers.readBySlug);
+router.get("/familles/:id", famillesControllers.read);
 router.get(
   "/familles/:id/categories",
   famillesControllers.browseCategoriesByFamily
 );
-router.put("/familles/:slug", famillesControllers.edit);
 router.post("/familles", famillesControllers.add);
+router.put("/familles/:id", famillesControllers.edit);
 router.delete("/familles/:id", famillesControllers.destroy);
 
 router.get("/categories", categoriesControllers.browse);

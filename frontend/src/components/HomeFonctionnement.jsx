@@ -11,7 +11,7 @@ function Fonctionnement() {
     <>
       <div className="w-full flex flex-row m-10">
         <img src={image} alt="boutique" className="ml-10 w-1/4" />
-        <div className="w-full h-full flex flex-col items-center mt-10">
+        <div className="w-full h-full flex flex-col items-center content-center mt-10">
           <h2 className="font-amatic text-5xl">Comment ça marche?</h2>
           <div className="flex flex-row w-4/6 justify-center my-20 gap-10">
             <div>
@@ -39,13 +39,15 @@ function Fonctionnement() {
               </p>
             </div>
           </div>
-          <Link
-            to="/fonctionnement"
-            className="border-2 bg-green border-green rounded-xl w-1/4 h-16 text-white"
-          >
-            {" "}
-            En savoir plus
-          </Link>
+          <div className=" flex justify-center border-2 bg-green border-green rounded-xl w-1/4 h-16 text-center">
+            <Link
+              to="/fonctionnement"
+              className=" font-amatic text-2xl text-white"
+            >
+              {" "}
+              En savoir plus
+            </Link>
+          </div>
         </div>
       </div>
       <div className=" bg-green h-px w-3/4 mx-24" />

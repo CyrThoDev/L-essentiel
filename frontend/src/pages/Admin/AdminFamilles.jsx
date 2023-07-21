@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import connexion from "../../services/connexion";
+import "react-toastify/dist/ReactToastify.css";
 
 function AdminFamilles() {
   const familleModel = { id: null, name: "", description: "", slug: "" };
@@ -33,8 +35,10 @@ function AdminFamilles() {
       const familleData = await connexion.post("/familles", famille);
       setFamille(familleData);
       getFamilles();
+      toast.success(`🦄 Famille ajoutée`);
     } catch (error) {
       console.error(error);
+      toast.error(`Une erreur est survenue`);
     }
   };
 
@@ -42,8 +46,10 @@ function AdminFamilles() {
     event.preventDefault();
     try {
       await connexion.put(`/familles/${famille.id}`, famille);
+      toast.success(`🦄 Famille mise à jour`);
     } catch (error) {
       console.error(error);
+      toast.error(`Une erreur est survenue`);
     }
   };
 
@@ -53,8 +59,10 @@ function AdminFamilles() {
       await connexion.delete(`/familles/${famille.id}`);
       setFamille(familleModel);
       getFamilles();
+      toast.success(`🦄 Famille supprimée`);
     } catch (error) {
       console.error(error);
+      toast.error(`Une erreur est survenue`);
     }
   };
 
@@ -155,6 +163,19 @@ function AdminFamilles() {
           </button>
         </div>
       )}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      <ToastContainer />
     </div>
   );
 }

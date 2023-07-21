@@ -11,7 +11,7 @@ function Welcome() {
           déchet facilement!
         </p>
       </div>
-      <div className=" bg-green h-px w-3/4 mx-36" />
+      <div className=" bg-green h-px w-3/4 mx-24" />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import image from "../assets/images/2.jpg";
 import balance from "../assets/images/balance.jpeg";
 import contenant from "../assets/images/contenant.jpeg";
@@ -9,7 +10,7 @@ function Fonctionnement() {
   return (
     <>
       <div className="w-full flex flex-row m-10">
-        <img src={image} alt="boutique" className=" w-1/4" />
+        <img src={image} alt="boutique" className="ml-10 w-1/4" />
         <div className="w-full h-full flex flex-col items-center mt-10">
           <h2 className="font-amatic text-5xl">Comment ça marche?</h2>
           <div className="flex flex-row w-4/6 justify-center my-20 gap-10">
@@ -38,16 +39,16 @@ function Fonctionnement() {
               </p>
             </div>
           </div>
-          <button
-            type="button"
+          <Link
+            to="/fonctionnement"
             className="border-2 bg-green border-green rounded-xl w-1/4 h-16 text-white"
           >
             {" "}
             En savoir plus
-          </button>
+          </Link>
         </div>
       </div>
-      <div className=" bg-green h-px w-3/4 mx-36" />
+      <div className=" bg-green h-px w-3/4 mx-24" />
     </>
   );
 }

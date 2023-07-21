@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar";
 import FamiliesHomePage from "../../components/FamiliesHomePage";
 import Welcome from "../../components/Welcome";
 import HomeFonctionnement from "../../components/HomeFonctionnement";
+import Localisation from "../../components/Localisation";
 import "../../App.css";
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
       <Welcome />
       <FamiliesHomePage />
       <HomeFonctionnement />
+      <Localisation />
     </>
   );
 }

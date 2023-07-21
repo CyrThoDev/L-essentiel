@@ -11,6 +11,8 @@ import History from "./pages/User/History";
 import AdminFamilles from "./pages/Admin/AdminFamilles";
 import AdminCategories from "./pages/Admin/AdminCategories";
 import AdminProducts from "./pages/Admin/AdminProducts";
+import epicerieimg from "./assets/images/7.jpg";
+import droguerieimg from "./assets/images/15.jpg";
 
 function App() {
   return (
@@ -21,11 +23,15 @@ function App() {
             <Route path="" element={<Home />} />
             <Route
               path="epicerie"
-              element={<CategoryPage title="epicerie" id={1} />}
+              element={
+                <CategoryPage title="epicerie" id={1} img={epicerieimg} />
+              }
             />
             <Route
               path="droguerie"
-              element={<CategoryPage title="droguerie" id={2} />}
+              element={
+                <CategoryPage title="droguerie" id={2} img={droguerieimg} />
+              }
             />
             <Route path="fonctionnement" element={<Fonctionnement />} />
             <Route path="histoire" element={<History />} />

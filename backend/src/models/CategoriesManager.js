@@ -25,13 +25,14 @@ class CategoriesManager extends AbstractManager {
 
   findBySlug(slug) {
     return this.database.query(
-      `select * from  ${this.table} as c 
-      inner join products_to_categories as ptc on ptc.categorie_id = c.id 
-      inner join products as p on p.id = ptc.product_id
+      `select * from  ${this.table} as c
       where c.slug = ?`,
       [slug]
     );
   }
+
+  // inner join products_to_categories as ptc on ptc.categorie_id = c.id
+  // inner join products as p on p.id = ptc.product_id
 
   insert(categories) {
     return this.database.query(`insert into ${this.table} (title) values (?)`, [

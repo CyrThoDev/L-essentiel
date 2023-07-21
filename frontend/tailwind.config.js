@@ -11,6 +11,7 @@ export default {
     fontFamily: {
       striverx: ["Striverx"],
       amatic: ["Amatic SC"],
+      roboto: ["Roboto"],
     },
   },
   plugins: [],

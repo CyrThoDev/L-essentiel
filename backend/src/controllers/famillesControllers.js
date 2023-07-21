@@ -39,21 +39,6 @@ const read = (req, res) => {
       res.sendStatus(500);
     });
 };
-// const readBySlug = (req, res) => {
-//   models.familles
-//     .findBySlug(req.params.slug)
-//     .then(([familles]) => {
-//       if (familles[0] == null) {
-//         res.sendStatus(404);
-//       } else {
-//         res.status(200).json(familles);
-//       }
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.sendStatus(500);
-//     });
-// };
 
 const edit = (req, res) => {
   const familles = req.body;
@@ -106,7 +91,6 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
-  // readBySlug,
   browseCategoriesByFamily,
   edit,
   add,

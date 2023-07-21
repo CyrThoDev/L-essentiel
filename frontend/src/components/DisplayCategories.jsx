@@ -35,7 +35,7 @@ function DisplayCategories({ title, id }) {
           </Link>
           <div>
             {categoriesList.map((cat) => (
-              <Link to={`/epicerie/${cat.name}`}>
+              <Link to={`/${title}/${cat.name}`}>
                 <div key={cat.id}>{cat.name}</div>
               </Link>
             ))}

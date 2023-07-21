@@ -31,11 +31,11 @@ const readById = (req, res) => {
 const readBySlug = (req, res) => {
   models.categories
     .findBySlug(req.params.slug)
-    .then(([categories]) => {
-      if (categories[0] == null) {
+    .then(([products]) => {
+      if (products[0] == null) {
         res.sendStatus(404);
       } else {
-        res.status(200).json(categories);
+        res.status(200).json(products);
       }
     })
     .catch((err) => {

@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import CategorieCard from "../../components/CategorieCard";
 
-function CategoryPage({ title, id }) {
+function CategoryPage({ title, id, img }) {
   const [categoriesList, setCategoriesList] = useState([]);
 
   const getCategories = async () => {
@@ -23,19 +23,21 @@ function CategoryPage({ title, id }) {
     <>
       <Header />
       <Navbar />
-      <div className=" flex flex-row justify-between items-center my-28 ">
+      <div className=" w-full flex flex-row justify-between items-center my-2 ">
         {title === "epicerie" ? (
-          <div className="w-full flex justify-center font-amatic text-3xl">
+          <div className="w-full h-56 flex justify-center items-center font-amatic text-5xl font-bold">
             Les produits de l'{title}
           </div>
         ) : (
-          <div className="w-full flex justify-center font-amatic text-3xl">
+          <div className="w-full  h-56 flex justify-center items-center font-amatic text-5xl font-bold">
             Les produits de la {title}
           </div>
         )}
-        <div className="w-full flex justify-center">{id}</div>
+        <div className="w-full flex justify-center">
+          <img className=" w-full mr-4" src={img} alt={title} />
+        </div>
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 justify-center gap-10 m-20">
         {categoriesList.map((cat) => (
           <CategorieCard categorie={cat} />
         ))}

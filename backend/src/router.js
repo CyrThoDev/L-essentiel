@@ -18,7 +18,7 @@ router.put("/familles/:id", famillesControllers.edit);
 router.delete("/familles/:id", famillesControllers.destroy);
 
 router.get("/categories", categoriesControllers.browse);
-router.get("/categories/:slug", categoriesControllers.readBySlug); // Récupère tous les produits qui ont comme catégorie le slug
+router.get("/categories/:slug/products", categoriesControllers.readBySlug); // Récupère tous les produits qui ont comme catégorie le slug
 router.put("/categories/:id", categoriesControllers.edit);
 router.post("/categories", categoriesControllers.add);
 router.delete("/categories/:id", categoriesControllers.destroy);
